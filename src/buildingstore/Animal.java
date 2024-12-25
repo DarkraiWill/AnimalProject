@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Animal {
     private static final List<Animal> animals = new ArrayList<>();
-    private String name;          // Имя животного
-    private String species;       // Вид животного
-    private int age;              // Возраст животного
-    private boolean vaccinated;   // Привито ли животное
+    private String name;
+    private String type;
+    private int age;
+    private boolean vaccinated;
 
     public Animal(String name, String species, int age, boolean vaccinated) {
         this.name = name;
-        this.species = species;
+        this.type = species;
         this.age = age;
         this.vaccinated = vaccinated;
         animals.add(this);
@@ -26,12 +26,13 @@ public class Animal {
         this.name = name;
     }
 
-    public String getSpecies() {
-        return species;
+
+    public String getType() {
+        return type;
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getAge() {
@@ -51,13 +52,12 @@ public class Animal {
     }
 
     public static void listAnimals() {
-        if (animals.isEmpty()) {
-            System.out.println("No animals found.");
-        } else {
+        if (animals.isEmpty()) System.out.println("No animals found.");
+        else {
             System.out.println("Animals list:");
             for (Animal animal : animals) {
-                System.out.printf("Name: %s, Species: %s, Age: %d, Vaccinated: %s%n",
-                        animal.name, animal.species, animal.age, animal.vaccinated ? "Yes" : "No");
+                System.out.printf("Name: %s, Type: %s, Age: %d, Vaccinated: %s%n",
+                        animal.name, animal.type, animal.age, animal.vaccinated ? "Yes" : "No");
             }
         }
     }
